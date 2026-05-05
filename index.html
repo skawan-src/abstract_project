@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abstract</title>
+    <link rel="stylesheet" href="style/style.css" />
+    <link rel="stylesheet" href="style/mobile-first.css">
+    <link   
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <nav id="navegacao">
+        <div id="abstract">
+            <img src="img/Abstract.png" alt="">
+            <span><a href="#">Abstract | Help Center</a></span>
+        </div>
+        <span id="botao"> <img src="img/menu.svg" onclick="ficarVisivel()" alt=""> </span>
+        <div id="itens" class="menu">
+          <ul>
+            <li><button id="submit">Submit a request</button></li>
+            <li><button id="signin">Sign in</button></li>
+          </ul>
+        </div>
+      </nav>
+      <menu>
+        <h1>How can we help?</h1>
+        <div id="search">
+          <input
+            type="text"
+            name="pesquisa"
+            id="ipesquisa"
+            placeholder="Search"
+          />
+          <div id="simbolo"><span class="material-symbols-outlined"> arrow_forward </span></div>
+        </div>
+      </menu>
+    </header>
+    <main>
+      <section>
+        <article></article>
+      </section>
+      <section>
+        <article></article>
+      </section>
+    </main>
+    <footer></footer>
+
+    <script>
+      let itens = document.getElementById("itens");
+
+      function ficarVisivel() {
+        itens.classList.toggle("visivel");
+      }
+    </script>
+  </body>
+</html>

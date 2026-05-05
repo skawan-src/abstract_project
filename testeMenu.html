@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* Estilos do Overlay (Fundo) */
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* Escurece */
+        backdrop-filter: blur(5px); /* Borra o fundo */
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.4s ease;
+        z-index: 998;
+      }
+
+      /* Menu Lateral */
+      .sidebar {
+        position: fixed;
+        top: 0;
+        right: -300px; /* Começa escondido à direita */
+        width: 250px;
+        height: 100%;
+        background: rgb(71, 71, 71);
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 999;
+
+        /* Centralização do conteúdo (usando Flexbox que aprendemos) */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* Tipografia responsiva (usando o Clamp que aprendemos) */
+      .menu-content h2 {
+        font-size: clamp(1.5rem, 2vw + 1rem, 2.5rem);
+        margin-bottom: 20px;
+      }
+
+      /* Classes de Ativação (via JavaScript) */
+      .sidebar.active {
+        transform: translateX(-300px); /* Move para a esquerda */
+      }
+
+      .overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Botão para abrir -->
+    <button class="open-btn" onclick="toggleMenu()">Abrir Menu</button>
+
+    <!-- Fundo escuro/borrado -->
+    <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+    <!-- Menu Lateral -->
+    <nav class="sidebar" id="sidebar">
+      <div class="menu-content">
+        <h2>Menu</h2>
+        <ul>
+          <li><a href="#">Início</a></li>
+          <li><a href="#">Serviços</a></li>
+          <li><a href="#">Contato</a></li>
+        </ul>
+      </div>
+    </nav>
+    <script>
+      function toggleMenu() {
+        const sidebar = document.getElementById("sidebar");
+        const overlay = document.getElementById("overlay");
+
+        sidebar.classList.toggle("active");
+        overlay.classList.toggle("active");
+      }
+    </script>
+  </body>
+</html>

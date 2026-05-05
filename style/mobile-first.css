@@ -31,7 +31,7 @@
     transition-duration: 0.3s;
   }
 
-  header > nav > span#botao > img {
+  header > nav > span#botao > span {
     display: inline-block;
 
     color: white;

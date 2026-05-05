@@ -19,7 +19,7 @@
           <span><a href="#">Abstract | Help Center</a></span>
         </div>
         <span id="botao">
-          <img src="img/menu.svg" onclick="ficarVisivel()" alt="" />
+          <span class="material-symbols-outlined" onclick="ficarVisivel()"> menu </span>
         </span>
         <div id="itens" class="menu">
           <ul>
@@ -55,7 +55,7 @@
 
     <script>
       let itens = document.getElementById("itens");
-      
+
       function ficarVisivel() {
         itens.classList.toggle("visivel");
       }

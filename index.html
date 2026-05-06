@@ -12,14 +12,16 @@
     />
   </head>
   <body>
-    <header>
+    <header id="altura">
       <nav id="navegacao">
         <div id="abstract">
           <img src="img/Abstract.png" alt="" />
           <span><a href="#">Abstract | Help Center</a></span>
         </div>
         <span id="botao">
-          <span class="material-symbols-outlined" onclick="ficarVisivel()"> menu </span>
+          <span class="material-symbols-outlined" onclick="ficarVisivel()">
+            menu
+          </span>
         </span>
         <div id="itens" class="menu">
           <ul>
@@ -28,7 +30,7 @@
           </ul>
         </div>
       </nav>
-      <menu>
+      <menu id="tamanho">
         <h1>How can we help?</h1>
         <div id="search">
           <input
@@ -45,19 +47,60 @@
     </header>
     <main>
       <section>
-        <article></article>
+        <article>
+          <h2>Branches</h2>
+          <p>
+            Abstract Branches lets you manage, version, and document your
+            designs in one place.
+          </p>
+          <a href="#">Learn More</a>
+        </article>
+        <article>
+          <h2>Manege organizations, teams, and projects</h2>
+          <p>
+            Use Abstract organizations, teams, and projects to organize your
+            people and your work.
+          </p>
+          <a href="#">Learn More</a>
+        </article>
+        <article>
+          <h2>Authenticate to Abstract</h2>
+          <p>Set up and configure SSO, SCIM, and Just-In-Time provisioning.</p>
+          <a href="#">Learn More</a>
+        </article>
       </section>
       <section>
-        <article></article>
+        <article>
+          <h2>Manage your account</h2>
+          <p>
+            Configure your account settings, such as your email, profile
+            details, and password.
+          </p>
+          <a href="#">Learn More</a>
+        </article>
+        <article>
+          <h2>Manage billing</h2>
+          <p>Change subscriptions and payment details.</p>
+          <a href="#">Learn More</a>
+        </article>
+        <article>
+          <h2>Abstract support</h2>
+          <p>Get in touch with a human.</p>
+          <a href="#">Learn More</a>
+        </article>
       </section>
     </main>
     <footer></footer>
 
     <script>
       let itens = document.getElementById("itens");
+      let altura = document.getElementById("altura");
+      let tamanho = document.getElementById("tamanho");
 
       function ficarVisivel() {
         itens.classList.toggle("visivel");
+        altura.classList.toggle("corDeFundo");
+        tamanho.classList.toggle("tamanhoMenu");
       }
       document.addEventListener("click", function (event) {
         const menu = document.getElementById("itens");
@@ -72,6 +115,72 @@
           ficarVisivel();
         }
       });
+      const trilho = document.querySelector("main");
+      let isDragging = false;
+      let startPos = 0;
+      let currentTranslate = 0;
+      let prevTranslate = 0;
+      let animationID = 0;
+      let currentIndex = 0;
+
+      // Captura todos os artigos
+      const articles = document.querySelectorAll("article");
+
+      articles.forEach((article, index) => {
+        // Impede comportamento padrão de arrastar imagens/links
+        article.addEventListener("dragstart", (e) => e.preventDefault());
+
+        // Eventos de Toque (Mobile)
+        article.addEventListener("touchstart", touchStart(index));
+        article.addEventListener("touchend", touchEnd);
+        article.addEventListener("touchmove", touchMove);
+      });
+
+      function touchStart(index) {
+        return function (event) {
+          currentIndex = index;
+          startPos = event.touches[0].clientX;
+          isDragging = true;
+          animationID = requestAnimationFrame(animation);
+        };
+      }
+
+      function touchMove(event) {
+        if (isDragging) {
+          const currentPosition = event.touches[0].clientX;
+          currentTranslate = prevTranslate + currentPosition - startPos;
+        }
+      }
+
+      function touchEnd() {
+        isDragging = false;
+        cancelAnimationFrame(animationID);
+
+        const movedBy = currentTranslate - prevTranslate;
+
+        // Se arrastou mais de 100px, muda de card
+        if (movedBy < -100 && currentIndex < articles.length - 1)
+          currentIndex += 1;
+        if (movedBy > 100 && currentIndex > 0) currentIndex -= 1;
+
+        setPositionByIndex();
+      }
+
+      function animation() {
+        setSliderPosition();
+        if (isDragging) requestAnimationFrame(animation);
+      }
+
+      function setSliderPosition() {
+        trilho.style.transform = `translateX(${currentTranslate}px)`;
+      }
+
+      function setPositionByIndex() {
+        // Calcula a posição exata para centralizar o card
+        currentTranslate = currentIndex * -window.innerWidth * 0.9; // Ajuste baseado no flex-basis
+        prevTranslate = currentTranslate;
+        setSliderPosition();
+      }
     </script>
   </body>
 </html>

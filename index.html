@@ -46,49 +46,45 @@
       </menu>
     </header>
     <main>
-      <section>
-        <article>
-          <h2>Branches</h2>
-          <p>
-            Abstract Branches lets you manage, version, and document your
-            designs in one place.
-          </p>
-          <a href="#">Learn More</a>
-        </article>
-        <article>
-          <h2>Manege organizations, teams, and projects</h2>
-          <p>
-            Use Abstract organizations, teams, and projects to organize your
-            people and your work.
-          </p>
-          <a href="#">Learn More</a>
-        </article>
-        <article>
-          <h2>Authenticate to Abstract</h2>
-          <p>Set up and configure SSO, SCIM, and Just-In-Time provisioning.</p>
-          <a href="#">Learn More</a>
-        </article>
-      </section>
-      <section>
-        <article>
-          <h2>Manage your account</h2>
-          <p>
-            Configure your account settings, such as your email, profile
-            details, and password.
-          </p>
-          <a href="#">Learn More</a>
-        </article>
-        <article>
-          <h2>Manage billing</h2>
-          <p>Change subscriptions and payment details.</p>
-          <a href="#">Learn More</a>
-        </article>
-        <article>
-          <h2>Abstract support</h2>
-          <p>Get in touch with a human.</p>
-          <a href="#">Learn More</a>
-        </article>
-      </section>
+      <article>
+        <h2>Branches</h2>
+        <p>
+          Abstract Branches lets you manage, version, and document your designs
+          in one place.
+        </p>
+        <a href="#">Learn More</a>
+      </article>
+      <article>
+        <h2>Manege organizations, teams, and projects</h2>
+        <p>
+          Use Abstract organizations, teams, and projects to organize your
+          people and your work.
+        </p>
+        <a href="#">Learn More</a>
+      </article>
+      <article>
+        <h2>Authenticate to Abstract</h2>
+        <p>Set up and configure SSO, SCIM, and Just-In-Time provisioning.</p>
+        <a href="#">Learn More</a>
+      </article>
+      <article>
+        <h2>Manage your account</h2>
+        <p>
+          Configure your account settings, such as your email, profile details,
+          and password.
+        </p>
+        <a href="#">Learn More</a>
+      </article>
+      <article>
+        <h2>Manage billing</h2>
+        <p>Change subscriptions and payment details.</p>
+        <a href="#">Learn More</a>
+      </article>
+      <article>
+        <h2>Abstract support</h2>
+        <p>Get in touch with a human.</p>
+        <a href="#">Learn More</a>
+      </article>
     </main>
     <footer></footer>
 
@@ -176,8 +172,9 @@
       }
 
       function setPositionByIndex() {
-        // Calcula a posição exata para centralizar o card
-        currentTranslate = currentIndex * -window.innerWidth * 0.9; // Ajuste baseado no flex-basis
+        // Pegamos a largura de um card + a margem para saber quanto pular
+        const cardWidth = articles[0].offsetWidth + 30; // 30 é o total de margens laterais
+        currentTranslate = currentIndex * -cardWidth;
         prevTranslate = currentTranslate;
         setSliderPosition();
       }

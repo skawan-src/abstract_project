@@ -124,22 +124,7 @@
     overflow: hidden;
     margin-top: 15px;
   }
-
   main {
-    display: flex;
-    flex-flow: row nowrap;
-    overflow-x: hidden; /* Esconde a barra de rolagem horizontal */
-    width: 100%;
-    padding: 20px 0;
-    touch-action: pan-y;
-  }
-
-  article {
-    flex: 0 0 85vw;
-    margin: 0 7.5vw;
-    background: #fff;
-    border-radius: 8px;
-    padding: 30px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: none;
   }
 }

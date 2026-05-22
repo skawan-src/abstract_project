@@ -135,6 +135,10 @@
 }
 
 @media only screen and (max-width: 524px) {
+  header {
+    height: calc(300px + 65px);
+  }
+
   main > section > article > div.around {
     flex-flow: column wrap;
   }

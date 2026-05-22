@@ -1,32 +1,44 @@
 @charset "UTF-8";
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 695px) {
+  .asidE {
+    margin: auto;
+  }
+}
+
+@media only screen and (max-width: 680px) {
   header.corDeFundo {
     height: calc(285px + 174px);
 
-    transition-duration: .5s;
+    transition-duration: 0.5s;
   }
 
-  header > nav {
+  /*   nav {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
     align-items: center;
     height: auto;
+  } */
+
+  nav > div#navegacao {
+    position: relative;
+    justify-content: space-between;
+    margin: 0;
   }
 
-  header > nav > div#abstract {
+  nav > div#abstract {
     flex-wrap: wrap;
     margin: 0;
     padding-left: 15px;
   }
 
-  header > nav > div#abstract > img {
+  nav > div#abstract > img {
     margin: 0px;
     margin-right: 5px;
   }
 
-  header > nav > span#botao {
+  #botao {
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
@@ -37,56 +49,45 @@
     transition-duration: 0.3s;
   }
 
-  header > nav > span#botao > span {
+  #botao > span.material-symbols-outlined {
     display: inline-block;
 
     color: white;
-    cursor: pointer;
     user-select: none;
     margin: auto;
   }
 
-  header > nav > span#botao:hover {
+  #botao:hover {
     background-color: rgba(163, 163, 163, 0.504);
+    cursor: pointer;
   }
 
-  header > nav > div.menu {
-    display: block;
+  div.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     opacity: 0;
     max-height: 0;
     overflow: hidden;
+    position: absolute;
+    top: 60px;
+    left: 0px;
 
     width: 100%;
     background-color: #1f1f1fc8;
     margin: 0;
 
-    transition-duration: .3s;
+    transition-duration: 0.3s;
   }
 
-  header > nav > div.menu > ul {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-  }
-
-  header > nav ul button#submit {
-    font-size: clamp(15px, 2vw, 1.5rem);
-    width: 95%;
-  }
-
-  header > nav ul button#signin {
-    width: 95%;
-  }
-
-  header > nav > div.menu > ul > li {
+  div.menu > ul > li {
     list-style-type: none;
     width: 50vw;
 
     text-align: center;
   }
 
-  header > nav > div.visivel {
+  div.visivel {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -97,21 +98,8 @@
     border-top: 1px solid rgba(112, 112, 112, 0.8);
     max-height: 200px;
   }
-  header > menu {
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
 
-    transition-duration: .5s;
-  }
-
-  header > menu.tamanhoMenu {
-    height: calc(100% - 174px);
-  }
-
-  header > menu > div#search {
+  header > div#search {
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
@@ -124,7 +112,40 @@
     overflow: hidden;
     margin-top: 15px;
   }
+
   main {
-    display: none;
+    margin-top: 100px;
+  }
+
+  main > section {
+    width: 90vw;
+  }
+
+  main > section > article {
+    width: 90vw;
+  }
+
+  main > section > article > div {
+    justify-content: space-evenly;
+  }
+
+  main > section > article > div.around {
+    flex-flow: row wrap;
+  }
+}
+
+@media only screen and (max-width: 524px) {
+  main > section > article > div.around {
+    flex-flow: column wrap;
+  }
+
+  main > section > article > div.around > img {
+    margin: auto;
+    margin-bottom: 30px;
+  }
+
+  main > section > article > div.around > div.conteudo {
+    text-align: center;
+    width: 100%;
   }
 }

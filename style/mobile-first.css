@@ -135,7 +135,7 @@
     main > section > article > div.around {
       flex-flow: row wrap;
     }
-  }
+}
   
   @media only screen and (max-width: 695px) {
     .asidE {
@@ -144,6 +144,9 @@
   }
 
   @media only screen and (max-width: 524px) {
+    nav {
+      padding: 0px 15px;
+    }
     /*   nav {
     position: relative;
   }
@@ -154,17 +157,17 @@
     height: calc(300px - 65px);
   } */
 
-  main > section > article > div.around {
-    flex-flow: column wrap;
-  }
+    main > section > article > div.around {
+      flex-flow: column wrap;
+    }
 
-  main > section > article > div.around > img {
-    margin: auto;
-    margin-bottom: 30px;
-  }
+    main > section > article > div.around > img {
+      margin: auto;
+      margin-bottom: 30px;
+    }
 
-  main > section > article > div.around > div.conteudo {
-    text-align: center;
-    width: 100%;
-  }
+    main > section > article > div.around > div.conteudo {
+      text-align: center;
+      width: 100%;
+    }
 }

@@ -7,6 +7,10 @@
 }
 
 @media only screen and (max-width: 680px) {
+  body {
+    position: relative;
+  }
+
   header.corDeFundo {
     height: calc(285px + 174px);
 
@@ -22,7 +26,6 @@
   } */
 
   nav > div#navegacao {
-    position: relative;
     justify-content: space-between;
     margin: 0;
   }

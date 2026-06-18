@@ -7,7 +7,7 @@
   main > section > article {
     margin: auto;
   }
-  
+
   /* main > section > article.asideTp {
     justify-content: center;
   }  */
@@ -268,7 +268,7 @@ footer {
   justify-content: end;
 }
 
-.asidE > p {
+.asidE > main {
   margin-top: 10px;
   color: white;
 }
@@ -285,7 +285,8 @@ footer {
 }
 
 .aside > p,
-h3, h4 {
+h3,
+h4 {
   color: white;
 }
 
